@@ -1,5 +1,5 @@
 {
-    "name": "nowaster-js-typing",
+    "name": "@kobu-labs/nowaster-js-typing",
     "version": "1.0.0",
     "description": "Type declarations and validations for requests and responses of nowaster",
     "main": "dist/index.js",
