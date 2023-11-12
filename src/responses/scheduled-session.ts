@@ -2,6 +2,7 @@ import { ScheduledSessionWithIdSchema } from "@/models";
 import { z } from "zod";
 
 const create = ScheduledSessionWithIdSchema;
+const readMany = z.array(ScheduledSessionWithIdSchema);
 const readById = z.array(ScheduledSessionWithIdSchema);
 const update = ScheduledSessionWithIdSchema;
 const remove = ScheduledSessionWithIdSchema;
@@ -17,4 +18,5 @@ export const ScheduledSessionResponseSchema = {
   update,
   remove,
   getCategories,
+  readMany,
 } as const;
