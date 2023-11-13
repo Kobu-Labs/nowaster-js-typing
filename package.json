@@ -1,12 +1,12 @@
 {
     "name": "@kobu-labs/nowaster-js-typing",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Type declarations and validations for requests and responses of nowaster",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc -d && tsc-alias",
-        "postinstall": "tsc -d && tsc-alias"
+        "postinstall": "npx tsc -d && npx tsc-alias"
     },
     "keywords": [],
     "author": "kobu",
