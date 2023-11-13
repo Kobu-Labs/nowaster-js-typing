@@ -1,9 +1,10 @@
+import { CategorySchema } from "@/models/category";
 import { HasID } from "@/utils";
 import { z } from "zod";
 
 export const RecordedSessionSchema = z.object({
   startTime: z.coerce.date(),
-  category: z.string(),
+  category: CategorySchema.merge(HasID),
   description: z.string().nullable()
 });
 export const RecordedSessionWithIdSchema = RecordedSessionSchema.merge(HasID);

@@ -1,7 +1,13 @@
+import { CategoryRequestSchema } from "@/requests/category";
 import { z } from "zod";
 
 const create = z.object({
-  category: z.string().nonempty(),
+  category: z.object({
+    id: z.string(),
+  })
+    .or(
+      CategoryRequestSchema.create
+    ),
   description: z.string()
     .max(50)
     .nullable(),
@@ -18,7 +24,12 @@ const readById = z.object({
 
 const updateById = z.object({
   id: z.string().uuid(),
-  category: z.string().nonempty().optional(),
+  category: z.object({
+    id: z.string(),
+  })
+    .or(
+      CategoryRequestSchema.create
+    ),
   description: z.string()
     .max(50)
     .optional(),

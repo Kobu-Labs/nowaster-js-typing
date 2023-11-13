@@ -1,7 +1,15 @@
+import { CategorySchema } from "@/models/category";
+import { CategoryRequestSchema } from "@/requests/category";
+import { HasID } from "@/utils";
 import { z } from "zod";
 
 const create = z.object({
-  category: z.string().nonempty(),
+  category: z.object({
+    id: z.string()
+  })
+    .or(
+      CategoryRequestSchema.create
+    ),
   description: z.string()
     .max(50)
     .nullable(),
@@ -24,14 +32,19 @@ const readMany = z.object({
   toStartTime: z.coerce.date().optional(),
   fromEndTime: z.coerce.date().optional(),
   toEndTime: z.coerce.date().optional(),
-  category: z.string().optional(),
+  category: CategorySchema.merge(HasID).deepPartial().optional(),
   /* TODO: Allow for multiple tags being passed here*/
   tags: z.string().optional()
 });
 
 const update = z.object({
   id: z.string().uuid(),
-  category: z.string().nonempty().optional(),
+  category: z.object({
+    id: z.string()
+  })
+    .or(
+      CategoryRequestSchema.create
+    ),
   description: z.string()
     .max(50)
     .optional(),

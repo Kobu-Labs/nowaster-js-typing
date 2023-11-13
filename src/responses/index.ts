@@ -4,3 +4,4 @@ export * from "@/responses/tag";
 export * from "@/responses/scheduled-session";
 export * from "@/responses/base";
 export * from "@/responses/statistics";
+export * from "@/responses/category";

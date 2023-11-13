@@ -6,7 +6,6 @@ const readMany = z.array(ScheduledSessionWithIdSchema);
 const readById = z.array(ScheduledSessionWithIdSchema);
 const update = ScheduledSessionWithIdSchema;
 const remove = ScheduledSessionWithIdSchema;
-const getCategories = z.array(z.string());
 
 export type ScheduledSessionResponse = {
     [Property in (keyof typeof ScheduledSessionResponseSchema)]: z.infer<typeof ScheduledSessionResponseSchema[Property]>
@@ -17,6 +16,5 @@ export const ScheduledSessionResponseSchema = {
   readById,
   update,
   remove,
-  getCategories,
   readMany,
 } as const;

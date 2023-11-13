@@ -1,3 +1,4 @@
+import { CategorySchema } from "@/models/category";
 import { TagWithIdSchema } from "@/models/tag";
 import { HasID } from "@/utils";
 import { z } from "zod";
@@ -5,7 +6,7 @@ import { z } from "zod";
 export const ScheduledSessionSchema = z.object({
   startTime: z.coerce.date(),
   endTime: z.coerce.date(),
-  category: z.string(),
+  category: CategorySchema.merge(HasID),
   description: z.string().nullable(),
   tags: z.array(TagWithIdSchema),
 });
