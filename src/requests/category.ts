@@ -30,6 +30,6 @@ export const CategoryRequestSchema = {
   create,
   update,
   readMany,
-  readById: readByName,
+  readByName,
   remove,
 };
