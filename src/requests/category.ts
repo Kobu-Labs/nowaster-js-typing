@@ -9,16 +9,15 @@ const create = z.object({
 });
 
 const update = z.object({
-  id: z.string(),
-  name: z.string().optional(),
+  name: z.string(),
 });
 
-const readById = z.object({
-  id: z.string(),
+const readByName = z.object({
+  name: z.string(),
 });
 
 const remove = z.object({
-  id: z.string(),
+  name: z.string(),
 });
 
 const readMany = z.object({
@@ -31,6 +30,6 @@ export const CategoryRequestSchema = {
   create,
   update,
   readMany,
-  readById,
+  readById: readByName,
   remove,
 };

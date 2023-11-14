@@ -1,12 +1,11 @@
 import { CategorySchema } from "@/models/category";
-import { HasID } from "@/utils";
 import { z } from "zod";
 
 export const CategoryResponseSchema = {
-  create: CategorySchema.merge(HasID),
-  readMany: z.array(CategorySchema.merge(HasID)),
-  readById: CategorySchema.merge(HasID).nullable(),
-  update: CategorySchema.merge(HasID),
+  create: CategorySchema,
+  readMany: z.array(CategorySchema),
+  readByName: CategorySchema.nullable(),
+  update: CategorySchema,
 };
 
 export type CategoryResponse = {
