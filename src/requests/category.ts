@@ -9,6 +9,7 @@ const create = z.object({
 });
 
 const update = z.object({
+  originalName: z.string(),
   name: z.string(),
 });
 
