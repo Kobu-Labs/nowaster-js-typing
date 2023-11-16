@@ -3,7 +3,7 @@ import { z } from "zod";
 
 const create = ScheduledSessionWithIdSchema;
 const readMany = z.array(ScheduledSessionWithIdSchema);
-const readById = z.array(ScheduledSessionWithIdSchema);
+const readById = ScheduledSessionWithIdSchema.nullable();
 const update = ScheduledSessionWithIdSchema;
 const remove = ScheduledSessionWithIdSchema;
 
