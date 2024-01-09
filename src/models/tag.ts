@@ -4,7 +4,7 @@ import { z } from "zod";
 
 export const TagSchema = z.object({
   label: z.string(),
-  allowedCategories: z.array(CategorySchema),
+  //INFO: temporary remove this: allowedCategories: z.array(CategorySchema),
 });
 
 
