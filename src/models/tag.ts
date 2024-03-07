@@ -1,8 +1,10 @@
+import { CategorySchema } from "@/models/category";
 import { HasID } from "@/utils";
 import { z } from "zod";
 
 export const TagSchema = z.object({
-  label: z.string()
+  label: z.string(),
+  allowedCategories: z.array(CategorySchema),
 });
 
 
