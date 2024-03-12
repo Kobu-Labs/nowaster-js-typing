@@ -1,4 +1,5 @@
 import { CategorySchema, TagSchema } from "@/models";
+import { HasID } from "@/utils";
 import { z } from "zod";
 
 const create = z.object({
@@ -11,7 +12,7 @@ const readMany = z.object({
   allowedCategories: z.array(CategorySchema).optional(),
 });
 
-const update = TagSchema.deepPartial();
+const update = TagSchema.deepPartial().merge(HasID);
 
 export type TagRequest = { [Property in (keyof typeof TagRequestSchema)]: z.infer<typeof TagRequestSchema[Property]> }
 
