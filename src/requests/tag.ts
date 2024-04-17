@@ -12,6 +12,11 @@ const readMany = z.object({
   allowedCategories: z.array(CategorySchema).optional(),
 });
 
+const removeAllowedCategory = z.object({
+  category: z.string(),
+  tagId: z.string(),
+});
+
 const addAllowedCategory = z.object({
   category: z.string(),
   tagId: z.string(),
@@ -30,4 +35,5 @@ export const TagRequestSchema = {
   readMany,
   update,
   addAllowedCategory,
+  removeAllowedCategory,
 } as const;
