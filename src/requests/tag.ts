@@ -12,12 +12,22 @@ const readMany = z.object({
   allowedCategories: z.array(CategorySchema).optional(),
 });
 
+const addAllowedCategory = z.object({
+  category: z.string(),
+  tagId: z.string(),
+});
+
 const update = TagSchema.deepPartial().merge(HasID);
 
-export type TagRequest = { [Property in (keyof typeof TagRequestSchema)]: z.infer<typeof TagRequestSchema[Property]> }
+export type TagRequest = {
+  [Property in keyof typeof TagRequestSchema]: z.infer<
+    (typeof TagRequestSchema)[Property]
+  >;
+};
 
 export const TagRequestSchema = {
   create,
   readMany,
   update,
+  addAllowedCategory,
 } as const;
