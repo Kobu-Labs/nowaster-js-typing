@@ -1,3 +1,4 @@
+import { TagWithIdSchema } from "@/models";
 import { CategorySchema } from "@/models/category";
 import { CategoryRequestSchema } from "@/requests/category";
 import { z } from "zod";
@@ -9,11 +10,7 @@ const create = z.object({
     .nullable(),
   startTime: z.coerce.date(),
   endTime: z.coerce.date(),
-  tags: z.array(
-    z.object({
-      id: z.string(),
-      label: z.string(),
-    })),
+  tags: TagWithIdSchema,
 });
 
 const readById = z.object({
