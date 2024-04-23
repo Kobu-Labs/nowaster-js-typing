@@ -10,7 +10,7 @@ const create = z.object({
     .nullable(),
   startTime: z.coerce.date(),
   endTime: z.coerce.date(),
-  tags: TagWithIdSchema,
+  tags: z.array(TagWithIdSchema),
 });
 
 const readById = z.object({
