@@ -1,5 +1,4 @@
 import { TagWithIdSchema } from "@/models";
-import { CategorySchema } from "@/models/category";
 import { CategoryRequestSchema } from "@/requests/category";
 import { z } from "zod";
 
