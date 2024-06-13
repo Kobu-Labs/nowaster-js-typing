@@ -21,7 +21,16 @@ const readMany = z.object({
   toStartTime: z.coerce.date().optional(),
   fromEndTime: z.coerce.date().optional(),
   toEndTime: z.coerce.date().optional(),
-  category: CategorySchema.deepPartial().optional(),
+  category: z
+    .object({
+      label: z
+        .object({
+          exact: z.string().optional(),
+          some: z.array(z.string()).optional(),
+        })
+        .optional(),
+    })
+    .optional(),
   tags: z
     .object({
       label: z
