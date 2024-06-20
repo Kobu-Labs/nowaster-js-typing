@@ -1,3 +1,4 @@
+import { sessionFilter } from "@/filters";
 import { TagWithIdSchema } from "@/models";
 import { CategoryRequestSchema } from "@/requests/category";
 import { z } from "zod";
@@ -16,31 +17,8 @@ const readById = z.object({
 
 const readMany = z.object({
   limit: z.coerce.number().optional(),
-  fromStartTime: z.coerce.date().optional(),
-  toStartTime: z.coerce.date().optional(),
-  fromEndTime: z.coerce.date().optional(),
-  toEndTime: z.coerce.date().optional(),
-  category: z
-    .object({
-      label: z
-        .object({
-          exact: z.string().optional(),
-          some: z.array(z.string()).optional(),
-        })
-        .optional(),
-    })
-    .optional(),
-  tags: z
-    .object({
-      label: z
-        .object({
-          every: z.array(z.string()).optional(),
-          some: z.array(z.string()).optional(),
-        })
-        .optional(),
-    })
-    .optional(),
-});
+}).merge(sessionFilter);
+
 
 const update = z.object({
   id: z.string().uuid(),
