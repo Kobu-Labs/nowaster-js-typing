@@ -6,12 +6,6 @@ const tagLabelFilter = z.object({
       value: z.array(z.string()),
       mode: z.union([z.literal("all"), z.literal("some")]),
     })
-    .or(
-      z.object({
-        value: z.string(),
-        mode: z.literal("exact"),
-      }),
-    ),
 });
 
 const tagIdFilter = z.object({
@@ -20,12 +14,6 @@ const tagIdFilter = z.object({
       value: z.array(z.string()),
       mode: z.union([z.literal("all"), z.literal("some")]),
     })
-    .or(
-      z.object({
-        value: z.string(),
-        mode: z.literal("exact"),
-      }),
-    ),
 });
 
 export const tagFilter = z
