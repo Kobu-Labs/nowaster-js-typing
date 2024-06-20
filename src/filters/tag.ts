@@ -28,6 +28,11 @@ const tagIdFilter = z.object({
     ),
 });
 
-export const tagFilter = z.union([tagLabelFilter, tagIdFilter]);
+export const tagFilter = z
+  .object({
+    ...tagLabelFilter.shape,
+    ...tagIdFilter.shape,
+  })
+  .partial();
 
 export type TagFilter = z.infer<typeof tagFilter>;

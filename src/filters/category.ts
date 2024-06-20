@@ -28,6 +28,11 @@ const categoryIdFilter = z.object({
     ),
 });
 
-export const categoryFilter = z.union([categoryNameFilter, categoryIdFilter]);
+export const categoryFilter = z
+  .object({
+    ...categoryNameFilter.shape,
+    ...categoryIdFilter.shape,
+  })
+  .partial();
 
 export type CategoryFilter = z.infer<typeof categoryFilter>;
